@@ -1,13 +1,18 @@
 import paho.mqtt.client as mqtt
+import random
+import json
 
-broker = "ブローカーのIPアドレス"
+broker = "test.mosquitto.org"
 port = 1883
-topic = "test/topic"
+topic = "test/test"
 
 def on_message(client, userdata, message):
-    print(f"Received message: {message.payload.decode('utf-8')}")
+    data = json.loads(message.payload.decode('utf-8'))
+    print(f"Received message: {data}")
 
-client = mqtt.Client()
+
+client_id = f'python-mqtt-{random.randint(0, 1000)}'
+client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id)
 client.connect(broker, port)
 client.subscribe(topic)
 client.on_message = on_message
