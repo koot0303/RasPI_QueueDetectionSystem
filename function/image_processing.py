@@ -11,7 +11,7 @@ import numpy as np
 # メイン関数
 def main():
     # 画像読み込み
-    image_name = "./queue_gpt.jpg"
+    image_name = "./img/queue_gpt.jpg"
     img = cv2.imread(image_name)
 
     # カメラ異常検知
@@ -46,7 +46,7 @@ def camera_exception(img):
 # グレースケール画像を保存
 def gray_scale(image_name, img):
 
-    gray_image_name = "./gray_" + image_name[2:]
+    gray_image_name = "./img/gray_" + image_name[6:]
     gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     cv2.imwrite(gray_image_name, gray_image)
 
@@ -56,7 +56,7 @@ def gray_scale(image_name, img):
 # ノイズ除去
 def gauss_blur(image_name, img):
 
-    gauss_image_name = "./gauss_" + image_name[2:]
+    gauss_image_name = "./img/gauss_" + image_name[6:]
     gauss_image = cv2.GaussianBlur(img, (17, 17), 11)
     cv2.imwrite(gauss_image_name, gauss_image)
 
@@ -66,7 +66,7 @@ def gauss_blur(image_name, img):
 # 二値化
 def binarization(image_name, img):
 
-    binary_image_name = "./binary_" + image_name[2:]
+    binary_image_name = "./img/binary_" + image_name[6:]
     ret, binary_image = cv2.threshold(img, 150, 255, cv2.THRESH_BINARY)
     cv2.imwrite(binary_image_name, binary_image)
 
