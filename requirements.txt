@@ -2,3 +2,4 @@
 paho-mqtt==2.1.0
 typing-extensions==4.7.1 
 opencv-python==4.10.0.84
+pillow=11.1.0
