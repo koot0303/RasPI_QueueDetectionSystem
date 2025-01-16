@@ -126,7 +126,7 @@ def gray_scale(image_path):
     img = cv2.imread(image_path)
 
     gray_image_name = "./img/gray_" + image_path[6:]
-    gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # グレースケール化
     cv2.imwrite(gray_image_name, gray_image)
 
     return gray_image_name
@@ -148,7 +148,7 @@ def gauss_blur(image_path):
     img = cv2.imread(image_path)
 
     gauss_image_name = "./img/gauss_" + image_path[6:]
-    gauss_image = cv2.GaussianBlur(img, (17, 17), 11)
+    gauss_image = cv2.GaussianBlur(img, (17, 17), 11)   # ぼかし画像化
     cv2.imwrite(gauss_image_name, gauss_image)
 
     return gauss_image_name
@@ -170,7 +170,7 @@ def binarization(image_path):
     img = cv2.imread(image_path)
 
     binary_image_name = "./img/queue_detected.jpg"
-    ret, binary_image = cv2.threshold(img, 150, 255, cv2.THRESH_BINARY)
+    ret, binary_image = cv2.threshold(img, 150, 255, cv2.THRESH_BINARY) # 二値化
     cv2.imwrite(binary_image_name, binary_image)
 
 
