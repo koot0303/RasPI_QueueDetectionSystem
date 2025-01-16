@@ -70,7 +70,7 @@ def image_vertical_split(img, split_num=10, save_folder='./img'):
     # 画像をNumPy配列に変換
     image_array = np.array(img)
 
-    # 縦に15分割
+    # 分割の前処理
     image_height, _, _ = image_array.shape
     v_split_size = image_height // split_num # 縦に分割するサイズ
     split_images = []           # 分割された画像を格納するリスト
@@ -113,13 +113,12 @@ def count_black_pixels(image_path, threshold=100):
     
     ※ しきい値の算出方法
     スプリットごとに頭の数を数えてしきい値を調整。一致したしきい値を設定する。
-
     """
 
     img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
     height, width = img.shape
 
-    # 端から黒ピクセルをカウント(100ごとに1人)
+    # 端から黒ピクセルをカウント( threshold ごとに1人)
     people_count = 0
     black_pixel_count = 0
     for i in range(width):

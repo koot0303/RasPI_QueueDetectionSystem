@@ -10,6 +10,7 @@ import numpy as np
 
 # メイン関数
 def main():
+    
     # 画像読み込み
     image_path = "./img/queue_gpt.jpg"
 
